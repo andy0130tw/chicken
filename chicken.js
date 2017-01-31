@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var fs = require('fs');
 
 var chicken = require('./lib/chicken');
@@ -11,12 +12,12 @@ if(process.argv[2] !== undefined) {
       throw new TypeError('Cannot execute an empty file.');
 
     let output = chicken(process.argv[3], code);
+    if (output !== undefined) {
+      if (output[-1])
+        throw new RangeError('Internal error in chicken.js: arbitrary chicken injection detected!');
 
-    if (output[-1])
-      throw new RangeError('Internal error in chicken.js: arbitrary chicken injection detected!');
-
-    if (output !== undefined)
       console.log(utils.parseHtmlEntities(output));
+    }
   });
 } else {
   console.error('Usage: node chicken.js PROGRAM [INPUT]');
