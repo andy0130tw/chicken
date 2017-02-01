@@ -1,9 +1,9 @@
 {
   "name": "ha-chicken",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An explanation of the interpreter of the programming language Chicken.",
   "main": "chicken.js",
-  "bin": "./bin/chicken.js",
+  "bin": "./bin/chicken",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
